@@ -4,8 +4,8 @@ import os
 client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-client.connect('ec2-52-79-226-216.ap-northeast-2.compute.amazonaws.com', username='ubuntu',
-               key_filename='/Users/hongseung-ui/Desktop/zaeval.ga.pem')
+client.connect('52.78.156.205', username='ubuntu',
+               key_filename='/Users/hongseung-ui/Desktop/amongsoftware.pem')
 
 
 def mkdir_p(sftp, remote_directory):
@@ -42,7 +42,7 @@ def recursive(sftp,path,remote_path):
 
 sftp = client.open_sftp()
 
-recursive(sftp,'/Users/hongseung-ui/every-calendar/server/every-calendar-server/','/home/ubuntu/every-calendar-server/')
+recursive(sftp,'/Users/hongseung-ui/every-calendar/server/every-calendar-server/everyCalendarServer/','/home/ubuntu/every-calendar-server/everyCalendarServer')
 client.exec_command(
     'sudo service apache2 restart'
 )

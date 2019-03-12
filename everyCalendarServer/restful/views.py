@@ -483,6 +483,7 @@ def is_valid(request):
         ses = requests.Session()
         ses.cookies.set('etsid',etsid)
         my_info = everytime.my_info(ses)
+        print(my_info,etsid)
         if(my_info == None):
             return Response({'status':'false'},status=status.HTTP_401_UNAUTHORIZED)
         return Response({'status':'true','user':my_info}, status=status.HTTP_200_OK)
